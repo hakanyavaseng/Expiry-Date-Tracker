@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+
 
 namespace Expiry_Date_Tracker_Program
 {
@@ -17,13 +19,20 @@ namespace Expiry_Date_Tracker_Program
             InitializeComponent();
         }
 
+
+        private void clear()
+        {
+            mtxtBarcode.Text = string.Empty;    
+            mtxtProductNo.Text = string.Empty;
+            mtxtProductName.Text= string.Empty;
+            mtxtAmount.Text = string.Empty; 
+        }
+
+        SqlConnection conn = new SqlConnection("Data Source=Hakan;Initial Catalog=ProductData;Integrated Security=True");
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'productDataDataSet3.tblProduct' table. You can move, or remove it, as needed.
-            this.tblProductTableAdapter.Fill(this.productDataDataSet3.tblProduct);
-            // TODO: This line of code loads data into the 'productDataDataSet2.tblProduct' table. You can move, or remove it, as needed.
-            this.tblProductTableAdapter1.Fill(this.productDataDataSet2.tblProduct);
-
+            // TODO: This line of code loads data into the 'productDataDataSet4.tblProduct' table. You can move, or remove it, as needed.
+     
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -34,6 +43,78 @@ namespace Expiry_Date_Tracker_Program
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+           
+           if(mtxtBarcode.Text == "" && mtxtProductNo.Text == "" && mtxtAmount.Text == "" && mtxtProductName.Text == "")
+            {
+                MessageBox.Show("You must enter product informations.");
+            }
+
+            else
+            {
+                conn.Open();
+                SqlCommand add = new SqlCommand("insert into tblProduct (pBarcode, pNumber, pName, pDate, pAmount) values (@p1,@p2,@p3,@p4, @p5)", conn);
+                add.Parameters.AddWithValue("@p1", mtxtBarcode.Text);
+                add.Parameters.AddWithValue("@p2", mtxtProductNo.Text);
+                add.Parameters.AddWithValue("@p3", mtxtProductName.Text);
+                DateTime dt = dateTimePicker1.Value.Date;
+                add.Parameters.AddWithValue("@p4", dt);
+                add.Parameters.AddWithValue("@p5", mtxtAmount.Text);
+                add.ExecuteNonQuery();
+                conn.Close();
+                MessageBox.Show("Product has been added to database.");
+            }
+
+           
+        }
+
+        private void btnList_Click(object sender, EventArgs e)
+        {
+            this.tblProductTableAdapter.Fill(this.productDataDataSet4.tblProduct);
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            int selectedIndex = dataGridView1.SelectedCells[0].RowIndex;
+
+            mtxtBarcode.Text = dataGridView1.Rows[selectedIndex].Cells[0].Value.ToString();
+            mtxtProductNo.Text = dataGridView1.Rows[selectedIndex].Cells[1].Value.ToString();
+            mtxtProductName.Text = dataGridView1.Rows[selectedIndex].Cells[2].Value.ToString();
+            mtxtAmount.Text = dataGridView1.Rows[selectedIndex].Cells[4].Value.ToString();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+            conn.Open();
+            int selectedIndex = dataGridView1.SelectedCells[0].RowIndex;
+
+            SqlCommand delete = new SqlCommand("Delete from tblProduct where pBarcode = @p1", conn);
+
+            delete.Parameters.AddWithValue("@p1", dataGridView1.Rows[selectedIndex].Cells[0].Value.ToString());
+            delete.ExecuteNonQuery();
+            conn.Close();
+
+            MessageBox.Show("Selected product has been deleted!");
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            this.clear();
         }
     }
 }
