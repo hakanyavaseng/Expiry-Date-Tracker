@@ -19,8 +19,20 @@ namespace Expiry_Date_Tracker_Program
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'productDataDataSet3.tblProduct' table. You can move, or remove it, as needed.
+            this.tblProductTableAdapter.Fill(this.productDataDataSet3.tblProduct);
             // TODO: This line of code loads data into the 'productDataDataSet2.tblProduct' table. You can move, or remove it, as needed.
             this.tblProductTableAdapter1.Fill(this.productDataDataSet2.tblProduct);
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
 
         }
     }

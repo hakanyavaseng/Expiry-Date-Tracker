@@ -67,6 +67,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProductDataDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ProductDataDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductDataDataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Expiry_Date_Tracker.resx">
@@ -113,6 +118,17 @@
     </None>
     <None Include="ProductDataDataSet2.xss">
       <DependentUpon>ProductDataDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="ProductDataDataSet3.xsc">
+      <DependentUpon>ProductDataDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="ProductDataDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProductDataDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProductDataDataSet3.xss">
+      <DependentUpon>ProductDataDataSet3.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
