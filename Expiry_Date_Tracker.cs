@@ -140,5 +140,24 @@ namespace Expiry_Date_Tracker_Program
                 xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
         
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            int selectedIndex = dataGridView1.SelectedCells[0].RowIndex;
+
+            SqlCommand update = new SqlCommand("Update tblProduct set pBarcode = @p1, pNumber = @p2, pName = @p3, pDate = @p4, pAmount = @p5 where pBarcode = @p6 ", conn);
+
+            update.Parameters.AddWithValue("@p1", mtxtBarcode.Text);
+            update.Parameters.AddWithValue("@p2", mtxtProductNo.Text);
+            update.Parameters.AddWithValue("@p3", mtxtProductName.Text);
+            DateTime dt = dateTimePicker1.Value.Date;
+            update.Parameters.AddWithValue("@p4", dt);
+            update.Parameters.AddWithValue("@p5", mtxtAmount.Text);
+            update.Parameters.AddWithValue("@p6", dataGridView1.Rows[selectedIndex].Cells[0].Value.ToString());
+            update.ExecuteNonQuery();
+            MessageBox.Show("Product has been updated!");
+
+        }
     }
 }

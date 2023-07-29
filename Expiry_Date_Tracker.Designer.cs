@@ -29,42 +29,41 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbInfo = new System.Windows.Forms.GroupBox();
-            this.lblBarcode = new System.Windows.Forms.Label();
-            this.lblNo = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblExpDate = new System.Windows.Forms.Label();
-            this.lblAmount = new System.Windows.Forms.Label();
-            this.mtxtBarcode = new System.Windows.Forms.MaskedTextBox();
-            this.mtxtProductNo = new System.Windows.Forms.MaskedTextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.mtxtAmount = new System.Windows.Forms.MaskedTextBox();
             this.mtxtProductName = new System.Windows.Forms.MaskedTextBox();
+            this.mtxtProductNo = new System.Windows.Forms.MaskedTextBox();
+            this.mtxtBarcode = new System.Windows.Forms.MaskedTextBox();
+            this.lblAmount = new System.Windows.Forms.Label();
+            this.lblExpDate = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblNo = new System.Windows.Forms.Label();
+            this.lblBarcode = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnList = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
+            this.btnList = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.mtxtAmount = new System.Windows.Forms.MaskedTextBox();
-            this.productDataDataSet4 = new Expiry_Date_Tracker_Program.ProductDataDataSet4();
-            this.tblProductBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tblProductTableAdapter = new Expiry_Date_Tracker_Program.ProductDataDataSet4TableAdapters.tblProductTableAdapter();
             this.pBarcodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.btnClear = new System.Windows.Forms.Button();
+            this.tblProductBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productDataDataSet4 = new Expiry_Date_Tracker_Program.ProductDataDataSet4();
+            this.tblProductTableAdapter = new Expiry_Date_Tracker_Program.ProductDataDataSet4TableAdapters.tblProductTableAdapter();
             this.gbInfo.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productDataDataSet4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblProductBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productDataDataSet4)).BeginInit();
             this.SuspendLayout();
             // 
             // gbInfo
@@ -88,45 +87,49 @@
             this.gbInfo.Text = "Product Informations";
             this.gbInfo.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // lblBarcode
+            // dateTimePicker1
             // 
-            this.lblBarcode.AutoSize = true;
-            this.lblBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblBarcode.Location = new System.Drawing.Point(7, 59);
-            this.lblBarcode.Name = "lblBarcode";
-            this.lblBarcode.Size = new System.Drawing.Size(136, 20);
-            this.lblBarcode.TabIndex = 0;
-            this.lblBarcode.Text = "Product Barcode: ";
+            this.dateTimePicker1.CustomFormat = "00/00/0000";
+            this.dateTimePicker1.Location = new System.Drawing.Point(149, 164);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(248, 26);
+            this.dateTimePicker1.TabIndex = 3;
+            this.dateTimePicker1.Value = new System.DateTime(2023, 7, 28, 0, 0, 0, 0);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // lblNo
+            // mtxtAmount
             // 
-            this.lblNo.AutoSize = true;
-            this.lblNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblNo.Location = new System.Drawing.Point(47, 95);
-            this.lblNo.Name = "lblNo";
-            this.lblNo.Size = new System.Drawing.Size(96, 20);
-            this.lblNo.TabIndex = 1;
-            this.lblNo.Text = "Product No: ";
+            this.mtxtAmount.Location = new System.Drawing.Point(149, 197);
+            this.mtxtAmount.Mask = "000";
+            this.mtxtAmount.Name = "mtxtAmount";
+            this.mtxtAmount.Size = new System.Drawing.Size(186, 26);
+            this.mtxtAmount.TabIndex = 4;
+            this.mtxtAmount.ValidatingType = typeof(int);
             // 
-            // lblName
+            // mtxtProductName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblName.Location = new System.Drawing.Point(25, 131);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(118, 20);
-            this.lblName.TabIndex = 2;
-            this.lblName.Text = "Product Name: ";
+            this.mtxtProductName.Location = new System.Drawing.Point(149, 131);
+            this.mtxtProductName.Name = "mtxtProductName";
+            this.mtxtProductName.Size = new System.Drawing.Size(186, 26);
+            this.mtxtProductName.TabIndex = 2;
             // 
-            // lblExpDate
+            // mtxtProductNo
             // 
-            this.lblExpDate.AutoSize = true;
-            this.lblExpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblExpDate.Location = new System.Drawing.Point(45, 167);
-            this.lblExpDate.Name = "lblExpDate";
-            this.lblExpDate.Size = new System.Drawing.Size(98, 20);
-            this.lblExpDate.TabIndex = 3;
-            this.lblExpDate.Text = "Expiry Date: ";
+            this.mtxtProductNo.Location = new System.Drawing.Point(149, 95);
+            this.mtxtProductNo.Mask = "00000000";
+            this.mtxtProductNo.Name = "mtxtProductNo";
+            this.mtxtProductNo.Size = new System.Drawing.Size(186, 26);
+            this.mtxtProductNo.TabIndex = 1;
+            this.mtxtProductNo.ValidatingType = typeof(int);
+            // 
+            // mtxtBarcode
+            // 
+            this.mtxtBarcode.Location = new System.Drawing.Point(149, 59);
+            this.mtxtBarcode.Mask = "0000000000000";
+            this.mtxtBarcode.Name = "mtxtBarcode";
+            this.mtxtBarcode.Size = new System.Drawing.Size(186, 26);
+            this.mtxtBarcode.TabIndex = 0;
+            this.mtxtBarcode.ValidatingType = typeof(int);
             // 
             // lblAmount
             // 
@@ -138,30 +141,45 @@
             this.lblAmount.TabIndex = 4;
             this.lblAmount.Text = "Amount: ";
             // 
-            // mtxtBarcode
+            // lblExpDate
             // 
-            this.mtxtBarcode.Location = new System.Drawing.Point(149, 59);
-            this.mtxtBarcode.Mask = "0000000000000";
-            this.mtxtBarcode.Name = "mtxtBarcode";
-            this.mtxtBarcode.Size = new System.Drawing.Size(186, 26);
-            this.mtxtBarcode.TabIndex = 0;
-            this.mtxtBarcode.ValidatingType = typeof(int);
+            this.lblExpDate.AutoSize = true;
+            this.lblExpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblExpDate.Location = new System.Drawing.Point(45, 167);
+            this.lblExpDate.Name = "lblExpDate";
+            this.lblExpDate.Size = new System.Drawing.Size(98, 20);
+            this.lblExpDate.TabIndex = 3;
+            this.lblExpDate.Text = "Expiry Date: ";
             // 
-            // mtxtProductNo
+            // lblName
             // 
-            this.mtxtProductNo.Location = new System.Drawing.Point(149, 95);
-            this.mtxtProductNo.Mask = "00000000";
-            this.mtxtProductNo.Name = "mtxtProductNo";
-            this.mtxtProductNo.Size = new System.Drawing.Size(186, 26);
-            this.mtxtProductNo.TabIndex = 1;
-            this.mtxtProductNo.ValidatingType = typeof(int);
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblName.Location = new System.Drawing.Point(25, 131);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(118, 20);
+            this.lblName.TabIndex = 2;
+            this.lblName.Text = "Product Name: ";
             // 
-            // mtxtProductName
+            // lblNo
             // 
-            this.mtxtProductName.Location = new System.Drawing.Point(149, 131);
-            this.mtxtProductName.Name = "mtxtProductName";
-            this.mtxtProductName.Size = new System.Drawing.Size(186, 26);
-            this.mtxtProductName.TabIndex = 2;
+            this.lblNo.AutoSize = true;
+            this.lblNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblNo.Location = new System.Drawing.Point(47, 95);
+            this.lblNo.Name = "lblNo";
+            this.lblNo.Size = new System.Drawing.Size(96, 20);
+            this.lblNo.TabIndex = 1;
+            this.lblNo.Text = "Product No: ";
+            // 
+            // lblBarcode
+            // 
+            this.lblBarcode.AutoSize = true;
+            this.lblBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblBarcode.Location = new System.Drawing.Point(7, 59);
+            this.lblBarcode.Name = "lblBarcode";
+            this.lblBarcode.Size = new System.Drawing.Size(136, 20);
+            this.lblBarcode.TabIndex = 0;
+            this.lblBarcode.Text = "Product Barcode: ";
             // 
             // groupBox1
             // 
@@ -179,34 +197,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operations";
             // 
-            // btnAdd
+            // btnClear
             // 
-            this.btnAdd.Location = new System.Drawing.Point(118, 38);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(148, 25);
-            this.btnAdd.TabIndex = 0;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnClear.Location = new System.Drawing.Point(118, 229);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(148, 27);
+            this.btnClear.TabIndex = 5;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // btnUpdate
+            // btnExport
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(118, 74);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(148, 32);
-            this.btnUpdate.TabIndex = 1;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(118, 117);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(148, 27);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnExport.Location = new System.Drawing.Point(118, 191);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(148, 27);
+            this.btnExport.TabIndex = 4;
+            this.btnExport.Text = "Export";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnList
             // 
@@ -218,15 +227,35 @@
             this.btnList.UseVisualStyleBackColor = true;
             this.btnList.Click += new System.EventHandler(this.btnList_Click);
             // 
-            // btnExport
+            // btnDelete
             // 
-            this.btnExport.Location = new System.Drawing.Point(118, 191);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(148, 27);
-            this.btnExport.TabIndex = 4;
-            this.btnExport.Text = "Export";
-            this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            this.btnDelete.Location = new System.Drawing.Point(118, 117);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(148, 27);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(118, 74);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(148, 32);
+            this.btnUpdate.TabIndex = 1;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(118, 38);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(148, 25);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // groupBox2
             // 
@@ -241,19 +270,11 @@
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pBarcodeDataGridViewTextBoxColumn,
@@ -269,29 +290,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(788, 209);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
-            // 
-            // mtxtAmount
-            // 
-            this.mtxtAmount.Location = new System.Drawing.Point(149, 197);
-            this.mtxtAmount.Mask = "000";
-            this.mtxtAmount.Name = "mtxtAmount";
-            this.mtxtAmount.Size = new System.Drawing.Size(186, 26);
-            this.mtxtAmount.TabIndex = 4;
-            this.mtxtAmount.ValidatingType = typeof(int);
-            // 
-            // productDataDataSet4
-            // 
-            this.productDataDataSet4.DataSetName = "ProductDataDataSet4";
-            this.productDataDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tblProductBindingSource
-            // 
-            this.tblProductBindingSource.DataMember = "tblProduct";
-            this.tblProductBindingSource.DataSource = this.productDataDataSet4;
-            // 
-            // tblProductTableAdapter
-            // 
-            this.tblProductTableAdapter.ClearBeforeFill = true;
             // 
             // pBarcodeDataGridViewTextBoxColumn
             // 
@@ -323,25 +321,19 @@
             this.pAmountDataGridViewTextBoxColumn.HeaderText = "pAmount";
             this.pAmountDataGridViewTextBoxColumn.Name = "pAmountDataGridViewTextBoxColumn";
             // 
-            // dateTimePicker1
+            // tblProductBindingSource
             // 
-            this.dateTimePicker1.CustomFormat = "00/00/0000";
-            this.dateTimePicker1.Location = new System.Drawing.Point(149, 164);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(248, 26);
-            this.dateTimePicker1.TabIndex = 3;
-            this.dateTimePicker1.Value = new System.DateTime(2023, 7, 28, 0, 0, 0, 0);
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.tblProductBindingSource.DataMember = "tblProduct";
+            this.tblProductBindingSource.DataSource = this.productDataDataSet4;
             // 
-            // btnClear
+            // productDataDataSet4
             // 
-            this.btnClear.Location = new System.Drawing.Point(118, 229);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(148, 27);
-            this.btnClear.TabIndex = 5;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.productDataDataSet4.DataSetName = "ProductDataDataSet4";
+            this.productDataDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblProductTableAdapter
+            // 
+            this.tblProductTableAdapter.ClearBeforeFill = true;
             // 
             // Expiry_Date_Tracker
             // 
@@ -360,8 +352,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productDataDataSet4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblProductBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productDataDataSet4)).EndInit();
             this.ResumeLayout(false);
 
         }
